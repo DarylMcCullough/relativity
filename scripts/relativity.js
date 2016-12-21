@@ -161,8 +161,9 @@ function setUpShips(ticks, red_move1) { // calculate ship parameters for given n
         ships[0].setMoving(true);
         //ships[0].setSize(shortLength);
         //ships[0].clockRate = shortRate;
-        ships[0].rightTime = ticks * shortRate;
-        ships[0].leftTime = ticks * shortRate + time_offset;
+        //ships[0].rightTime = ticks * shortRate;
+        //ships[0].leftTime = ticks * shortRate + time_offset;
+        ships[0].setTime(ticks * ships[0].clockRate)
         ships[0].renderClocks();
         var position = startPosition + pos_delta + ticks;
         ships[0].ticks = ticks;
@@ -171,19 +172,20 @@ function setUpShips(ticks, red_move1) { // calculate ship parameters for given n
         ships[1].setMoving(false);
         //ships[1].setSize(longLength);
         //ships[1].clockRate = longRate;
-        ships[1].leftTime = ticks * longRate;
-        ships[1].rightTime = ticks * longRate;
+        //ships[1].leftTime = ticks * longRate;
+        //ships[1].rightTime = ticks * longRate;
+        ships[1].setTime(ticks * ships[1].clockRate);
         ships[1].setPosition(startPosition + pos_delta);
         ships[1].renderClocks();
         ships[1].ticks = ticks;
         pos = ticks;
     } else {
-        pos_delta = 100;
         //ships[0].setSize(longLength);
         //ships[0].clockRate = longRate;
         ships[0].setMoving(false);
-        ships[0].rightTime = ticks * longRate;
-        ships[0].leftTime = ticks * longRate;
+        ships[0].setTime(ticks * ships[0].clockRate);
+        //ships[0].rightTime = ticks * longRate;
+        //ships[0].leftTime = ticks * longRate;
         ships[0].renderClocks();
         var position = startPosition + pos_delta;
         ships[0].ticks = ticks;
@@ -192,8 +194,9 @@ function setUpShips(ticks, red_move1) { // calculate ship parameters for given n
         //ships[1].setSize(shortLength);
         //ships[1].clockRate = shortRate;
         ships[1].setMoving(true);
-        ships[1].leftTime = ticks * shortRate;
-        ships[1].rightTime = ticks * shortRate + time_offset;
+        //ships[1].leftTime = ticks * shortRate;
+        //ships[1].rightTime = ticks * shortRate + time_offset;
+        ships[1].setTime(ticks * ships[1].clockRate);
         var position = startPosition + pos_delta - ticks;
         ships[1].setPosition(position);
         ships[1].renderClocks();
