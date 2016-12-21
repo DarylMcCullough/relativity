@@ -7,6 +7,7 @@ var shortRate = 0.115; // the clock rate of the time-dilated clock
 var longRate = 0.230; // the clock rate of the undilated clock
 var pos_delta = 100; // extra padding on left, in px
 var red_move = false; // if true, then red ship is moving, green ship is stationary. If false, red ship is stationary, green ship is moving
+var mover = "red";
 var pos_max = 450; // maximum number of "ticks" to run simulation
 var pos = 0; // current number of ticks
 var time_offset = 45; // offset of left clock of red ship when it is moving, or right clock of green ship when it is moving
@@ -169,6 +170,11 @@ window.onload = function() { // create ships, initialize their lengths, position
 }
 
 function setUpShips(ticks, red_move1) { // calculate ship parameters for given number of ticks; red_move1 specifies whether the red ship is moving
+    if (red_move1) {
+        mover = "red";
+    } else {
+        mover = "green";
+    }
     if (ticks === undefined || ticks < 0) {
         if (red_move1 != red_move) {
             ticks = Math.floor((ships[0].ticks / longRate) * shortRate + 0.5);
@@ -178,12 +184,7 @@ function setUpShips(ticks, red_move1) { // calculate ship parameters for given n
     }
     
     red_move = red_move1;
-    var mover = "red";
-    if (red_move) {
-        mover = "red";
-    } else {
-        mover = "green";
-    }
+
     
     for (var i = 0; i < ships.length; i++) {
         var ship = ships[i];
