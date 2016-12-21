@@ -43,6 +43,7 @@ function Ship(leftClock, rightClock, leftSpacer, rod, name) {
                 this.left_offset = 0;
             }
         } else {
+            this.clockRate = longRate;
             this.moving = false;
             this.left_offset = 0;
             this.right_offset = 0;
@@ -159,10 +160,6 @@ function setUpShips(ticks, red_move1) { // calculate ship parameters for given n
 
     if (red_move) {
         ships[0].setMoving(true);
-        //ships[0].setSize(shortLength);
-        //ships[0].clockRate = shortRate;
-        //ships[0].rightTime = ticks * shortRate;
-        //ships[0].leftTime = ticks * shortRate + time_offset;
         ships[0].setTime(ticks * ships[0].clockRate)
         ships[0].renderClocks();
         var position = startPosition + pos_delta + ticks;
@@ -170,32 +167,20 @@ function setUpShips(ticks, red_move1) { // calculate ship parameters for given n
         ships[0].setPosition(position);
         
         ships[1].setMoving(false);
-        //ships[1].setSize(longLength);
-        //ships[1].clockRate = longRate;
-        //ships[1].leftTime = ticks * longRate;
-        //ships[1].rightTime = ticks * longRate;
         ships[1].setTime(ticks * ships[1].clockRate);
         ships[1].setPosition(startPosition + pos_delta);
         ships[1].renderClocks();
         ships[1].ticks = ticks;
         pos = ticks;
     } else {
-        //ships[0].setSize(longLength);
-        //ships[0].clockRate = longRate;
         ships[0].setMoving(false);
         ships[0].setTime(ticks * ships[0].clockRate);
-        //ships[0].rightTime = ticks * longRate;
-        //ships[0].leftTime = ticks * longRate;
         ships[0].renderClocks();
         var position = startPosition + pos_delta;
         ships[0].ticks = ticks;
         ships[0].setPosition(position);
         
-        //ships[1].setSize(shortLength);
-        //ships[1].clockRate = shortRate;
         ships[1].setMoving(true);
-        //ships[1].leftTime = ticks * shortRate;
-        //ships[1].rightTime = ticks * shortRate + time_offset;
         ships[1].setTime(ticks * ships[1].clockRate);
         var position = startPosition + pos_delta - ticks;
         ships[1].setPosition(position);
@@ -212,37 +197,11 @@ function stopMove() { // stops animation
 }
 
 function initGreen() { // sets up simulation for green frame (red ship moving)
-    ships[0].setMoving(true);
-
-    var position = startPosition + pos_delta;
-    ships[0].ticks = 0;
-    ships[0].setPosition(position);
-    ships[0].setTime(0.0);
-
-    ships[1].setMoving(false);
-
-    ships[1].setPosition(startPosition + pos_delta);
-    ships[1].ticks = 0;
-    ships[1].setTime(0);
-    red_move = true;
-    pos = 0;
+    setUpShips(0, true);
 }
 
 function initRed() { // sets up simulation for green frame (red ship moving)
-    ships[0].setMoving(false);
-
-    var position = startPosition + pos_delta;
-    ships[0].ticks = 0;
-    ships[0].setPosition(position);
-    ships[0].setTime(0.0);
-
-    ships[1].setMoving(true);
-
-    ships[1].setPosition(startPosition + pos_delta);
-    ships[1].ticks = 0;
-    ships[1].setTime(0);
-    red_move = false;
-    pos = 0;
+    setUpShips(0, false);
 }
 
 function switchToGreen() { // switches to green frame, keeping the time on the left green clock unchanged
@@ -256,7 +215,6 @@ function switchToRed() { // switches to red frame, keeping time on the right red
 
 
 function myMove() {
-    var done = false;
     id = setInterval(move, 50);
     function move() {
         if (pos == pos_max) {
