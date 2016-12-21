@@ -58,3 +58,11 @@ div#two, div#six {
     padding-top: 20px;
     padding-left: 10px;
 }
+
+div.buttons {
+    width: 300px; /*can be in percentage also.*/
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
