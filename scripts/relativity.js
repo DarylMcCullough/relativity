@@ -59,6 +59,11 @@ function Ship(leftClock, rightClock, leftSpacer, rod, name) {
         }
     }
     
+    this.setTicks = function(ticks) {
+        this.ticks = ticks;
+        this.setTime(ticks * this.clockRate);
+    }
+    
     this.setTime = function(t) {
         this.leftTime = t + this.left_offset;
         this.rightTime = t + this.right_offset;
@@ -160,32 +165,36 @@ function setUpShips(ticks, red_move1) { // calculate ship parameters for given n
 
     if (red_move) {
         ships[0].setMoving(true);
-        ships[0].setTime(ticks * ships[0].clockRate)
-        ships[0].renderClocks();
+        //ships[0].setTime(ticks * ships[0].clockRate)
+        //ships[0].renderClocks();
         var position = startPosition + pos_delta + ticks;
-        ships[0].ticks = ticks;
+        //ships[0].ticks = ticks;
         ships[0].setPosition(position);
+        ships[0].setTicks(ticks);
         
         ships[1].setMoving(false);
-        ships[1].setTime(ticks * ships[1].clockRate);
+        //ships[1].setTime(ticks * ships[1].clockRate);
         ships[1].setPosition(startPosition + pos_delta);
-        ships[1].renderClocks();
-        ships[1].ticks = ticks;
+        //ships[1].renderClocks();
+        //ships[1].ticks = ticks;
+        ships[1].setTicks(ticks);
         pos = ticks;
     } else {
         ships[0].setMoving(false);
-        ships[0].setTime(ticks * ships[0].clockRate);
-        ships[0].renderClocks();
+        //ships[0].setTime(ticks * ships[0].clockRate);
+        //ships[0].renderClocks();
         var position = startPosition + pos_delta;
-        ships[0].ticks = ticks;
+        //ships[0].ticks = ticks;
         ships[0].setPosition(position);
+        ships[0].setTicks(ticks);
         
         ships[1].setMoving(true);
-        ships[1].setTime(ticks * ships[1].clockRate);
+        //ships[1].setTime(ticks * ships[1].clockRate);
         var position = startPosition + pos_delta - ticks;
         ships[1].setPosition(position);
-        ships[1].renderClocks();
-        ships[1].ticks = ticks;
+        //ships[1].renderClocks();
+        //ships[1].ticks = ticks;
+        ships[1].setTicks(ticks);
         pos = ticks;
     }
 }
