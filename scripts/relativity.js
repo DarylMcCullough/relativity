@@ -29,16 +29,24 @@ function Ship(leftClock, rightClock, leftSpacer, rod, name) {
     this.moving = false;
     this.left_offset = 0;
     this.right_offset = 0;
+    
+    this.setMover = function(name) {
+        if (name == this.name) {
+            this.setMoving(true);
+        } else {
+            this.setMoving(false);
+        }
+    }
         
     this.setMoving = function (moving) {
         if (moving) {
             this.moving = true;
             this.setSize(shortLength);
             this.clockRate = shortRate;
-            if (name == "red") {
+            if (this.name == "red") {
                 this.left_offset = time_offset;
                 this.right_offset = 0;
-            } else if (name == "green") {
+            } else if (this.name == "green") {
                 this.right_offset = time_offset;
                 this.left_offset = 0;
             }
@@ -51,10 +59,18 @@ function Ship(leftClock, rightClock, leftSpacer, rod, name) {
         }
     }
     
-    this.setPosition = function(x) {
-        if (name == "red") {
+    this.setPosition = function(start, increment) {
+        if (this.name == "green") {
+            increment = -increment; // move to left
+        }
+        if (! this.moving) {
+            increment = 0; // don't move
+        }
+        
+        var x = start + increment;
+        if (this.name == "red") {
             this.positionRight(x);
-        } else if (name == "green") {
+        } else if (this.name == "green") {
             this.positionLeft(x);
         }
     }
@@ -162,41 +178,21 @@ function setUpShips(ticks, red_move1) { // calculate ship parameters for given n
     }
     
     red_move = red_move1;
-
+    var mover = "red";
     if (red_move) {
-        ships[0].setMoving(true);
-        //ships[0].setTime(ticks * ships[0].clockRate)
-        //ships[0].renderClocks();
-        var position = startPosition + pos_delta + ticks;
-        //ships[0].ticks = ticks;
-        ships[0].setPosition(position);
-        ships[0].setTicks(ticks);
-        
-        ships[1].setMoving(false);
-        //ships[1].setTime(ticks * ships[1].clockRate);
-        ships[1].setPosition(startPosition + pos_delta);
-        //ships[1].renderClocks();
-        //ships[1].ticks = ticks;
-        ships[1].setTicks(ticks);
-        pos = ticks;
+        mover = "red";
     } else {
-        ships[0].setMoving(false);
-        //ships[0].setTime(ticks * ships[0].clockRate);
-        //ships[0].renderClocks();
-        var position = startPosition + pos_delta;
-        //ships[0].ticks = ticks;
-        ships[0].setPosition(position);
-        ships[0].setTicks(ticks);
-        
-        ships[1].setMoving(true);
-        //ships[1].setTime(ticks * ships[1].clockRate);
-        var position = startPosition + pos_delta - ticks;
-        ships[1].setPosition(position);
-        //ships[1].renderClocks();
-        //ships[1].ticks = ticks;
-        ships[1].setTicks(ticks);
-        pos = ticks;
+        mover = "green";
     }
+    
+    for (var i = 0; i < ships.length; i++) {
+        var ship = ships[i];
+        ship.setMover(mover);
+        ship.setTicks(ticks);
+        ship.setPosition(startPosition + pos_delta, ticks);
+    }
+
+    pos = ticks;
 }
 
 function stopMove() { // stops animation
