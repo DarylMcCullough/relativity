@@ -1,0 +1,60 @@
+section {
+    width: 80%;
+    height: 100px;
+    background: aqua;
+    margin: auto;
+    padding: 10px;
+}
+div#spacer {
+    margin-left: 320px;
+    height: 1px;
+    float: left;
+}
+div#spacer2 {
+    margin-left: 200px;
+    height: 1px;
+    float: left;
+}
+div#one, div#four {
+    width: 50px;
+    height: 50px;
+    margin-top: 0;
+    color: white;
+    padding-top: 20px;
+    padding-left: 10px;
+    float: left;
+}
+
+div#one, div#two {
+    background-color: red;
+}
+
+div#four, div#six {
+    background-color: green;
+}
+
+
+div#three {
+    width: 160px;
+    height: 10px;
+    margin-top:25px;
+    background: black;
+    float: left;
+}
+
+div#five {
+    width: 350px;
+    height: 10px;
+    margin-top:25px;
+    background: black;
+    float: left;
+}
+div#two, div#six {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-top: 0;
+    color:white;
+    padding-top: 20px;
+    padding-left: 10px;
+}
