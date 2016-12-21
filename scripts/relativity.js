@@ -30,6 +30,17 @@ function Ship(leftClock, rightClock, leftSpacer, rod, name) {
     this.left_offset = 0;
     this.right_offset = 0;
     
+    this.setPosition = function(x) {
+        if (this.name == "red") {
+            this.positionRight(x);
+            return;
+        }
+        if (this.name == "green") {
+            this.positionLeft(x);
+            return;
+        }
+    }
+    
     this.setMoving = function (moving) {
         if (moving) {
             this.moving = true;
@@ -164,13 +175,13 @@ function setUpShips(ticks, red_move1) { // calculate ship parameters for given n
         ships[0].renderClocks();
         var position = startPosition + pos_delta + ticks;
         ships[0].ticks = ticks;
-        ships[0].positionRight(position);
+        ships[0].setPosition(position);
         
         ships[1].setSize(longLength);
         ships[1].clockRate = longRate;
         ships[1].leftTime = ticks * longRate;
         ships[1].rightTime = ticks * longRate;
-        ships[1].positionLeft(startPosition + pos_delta);
+        ships[1].setPosition(startPosition + pos_delta);
         ships[1].renderClocks();
         ships[1].ticks = ticks;
         pos = ticks;
@@ -183,14 +194,14 @@ function setUpShips(ticks, red_move1) { // calculate ship parameters for given n
         ships[0].renderClocks();
         var position = startPosition + pos_delta;
         ships[0].ticks = ticks;
-        ships[0].positionRight(position);
+        ships[0].setPosition(position);
         
         ships[1].setSize(shortLength);
         ships[1].clockRate = longRate;
         ships[1].leftTime = ticks * shortRate;
         ships[1].rightTime = ticks * shortRate + time_offset;
         var position = startPosition + pos_delta - ticks;
-        ships[1].positionLeft(position);
+        ships[1].setPosition(position);
         ships[1].renderClocks();
         ships[1].ticks = ticks;
         pos = ticks;
