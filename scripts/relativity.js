@@ -169,22 +169,16 @@ window.onload = function() { // create ships, initialize their lengths, position
     initGreen();
 }
 
-function setUpShips(ticks, red_move1) { // calculate ship parameters for given number of ticks; red_move1 specifies whether the red ship is moving
-    if (red_move1) {
-        mover = "red";
-    } else {
-        mover = "green";
-    }
+function setUpShips(ticks, mover1) { // calculate ship parameters for given number of ticks; red_move1 specifies whether the red ship is moving
     if (ticks === undefined || ticks < 0) {
-        if (red_move1 != red_move) {
+        if (mover1 != mover) {
             ticks = Math.floor((ships[0].ticks / longRate) * shortRate + 0.5);
         } else {
             ticks = ships[0].ticks;
         }
     }
     
-    red_move = red_move1;
-
+    mover = mover1;
     
     for (var i = 0; i < ships.length; i++) {
         var ship = ships[i];
@@ -203,19 +197,19 @@ function stopMove() { // stops animation
 }
 
 function initGreen() { // sets up simulation for green frame (red ship moving)
-    setUpShips(0, true);
+    setUpShips(0, "red");
 }
 
 function initRed() { // sets up simulation for green frame (red ship moving)
-    setUpShips(0, false);
+    setUpShips(0, "green");
 }
 
 function switchToGreen() { // switches to green frame, keeping the time on the left green clock unchanged
-    setUpShips(-1, true);
+    setUpShips(-1, "red");
 }
 
 function switchToRed() { // switches to red frame, keeping time on the right red clock unchanged
-    setUpShips(-1, false);
+    setUpShips(-1, "green");
 }
 
 
@@ -227,7 +221,7 @@ function myMove() {
             clearInterval(id)
         } else {
             pos++;
-            setUpShips(pos, red_move);
+            setUpShips(pos, mover);
         }
         
     }
