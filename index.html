@@ -5,27 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300">
         <link rel="stylesheet" type="text/css" href="styles/relativity.css">
+        <link href="https://fonts.googleapis.com/css?family=Molle:400i|Pacifico" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <h1>Relativity Demo</h1>
-            <h2>By Daryl McCullough</h2>
-            <h3>stevendaryl3016@yahoo.com</h3>
-        </header>
+        <section>
+            <div class="myHeader">
+                <h1>Relativity Demo</h1>
+                <h2>By Daryl McCullough</h1>
+                <h3>stevendaryl3016@yahoo.com</h3>
+            </div>
+        </section>
         <section>
             <div class="buttons">
 
-                <button id="switchGreen" onclick="switchToGreen()">Green ship's frame</button>
+                <button class="myButton" id="switchGreen" onclick="switchToGreen()">Green ship's frame</button>
 
-                <button id="switchRed" onclick="switchToRed()">Red ship's frame</button>
+                <button class="myButton" id="switchRed" onclick="switchToRed()">Red ship's frame</button>
             </div>
 
         </section>
         <section>
             <div id="spacer2"></div>
-            <div id="one">12:45</div>
-            <div id="three"></div>
-            <div id="two">12:00</div>
+            <div id="one" class="clock">12:45</div>
+            <div id="three" class="rod"></div>
+            <div id="two" class="clock">12:00</div>
             <div id="clear"></div>
             <!-- <div id="four"></div>
             <div id="five"></div>
@@ -34,59 +38,25 @@
         
         <section>
             <div id="spacer"></div>
-            <div id="four">12:00</div>
-            <div id="five"></div>
-            <div id="six">12:00</div>
+            <div id="four" class="clock">12:00</div>
+            <div id="five" class="rod"></div>
+            <div id="six" class="clock">12:00</div>
             <div id="clear"></div>
         </section>
         
         <section>
             <div class="buttons">
-                <button id="move" onclick="myMove()">Start</button>
+                <button class="myButton" id="move" onclick="myMove()">Start</button>
 
-                <button onclick="stopMove()">Stop
+                <button class="myButton" id="stop" onclick="stopMove()">Stop
                 </button>
 
-                <button id="reset" onclick="initGreen()">Reset</button>
+                <button class="myButton" id="reset" onclick="initGreen()">Reset</button>
             </div>
         </section>
-        
         <section>
-            <h2>Parameters</h2>
-            <ul>
-                <li>speed = 0.866 c</li>
-                <li>uncontracted rocket length = 51.86 light-minutes</li>
-            </ul>
-            <h2>Notes</h2>
-            <h3>In the "green" rest frame:</h3>
-            <ul>
-                <li>The green rocket is stationary</li>
-                <li>The red rocket is moving to the right at speed 0.866c.</li>
-                <li>The clocks of the "green" rocket are synchronized.</li>
-                <li>The clocks of the "red" rocket are out-of-synch.</li>
-                <li>The clocks of the "red" rocket run at one-half the rate of those of the "green" rocket.</li>
-                <li>The front clock (the right clock) of the "red" rocket is 45 minutes behind that of the rear clock (the left clock).</li>
-                <li>The length of the "red" rocket is one-half that of the "green" rocket.</li>
-            </ul>
-            <h3>In the "red" rest frame:</h3>
-            <ul>
-                <li>The red rocket is stationary.</li>
-                <li>The green rocket is moving to the left at speed 0.866c</li>
-                <li>The clocks of the "red" rocket are synchronized.</li>
-                <li>The clocks of the "green" rocket are out-of-synch.</li>
-                <li>The clocks of the "green" rocket run at one-half the rate of those of the "red" rocket.</li>
-                <li>The front clock (the left clock, since it's moving to the left) of the "green" rocket is 45 minutes ahead of that of the rear clock.</li>
-                <li>The length of the "green" rocket is one-half that of the "red" rocket.</li>
-            </ul>
-            <h3>Formulas</h3>
-            <ul>
-                <li>"gamma factor" = 1/sqrt(1-v^2/c^2)</li>
-                <li>length of moving rocket contracted by a factor of gamma</li>
-                <li>rate of moving clock slows by a factor of gamma</li>
-                <li>offset of clocks on board moving rocket = gamma L (L = distance between clocks, with the "front" clock running behind) </li>
-            </ul>
-        </section>
-        
+            <a href="info.html">Info</a>
+        </section>    
         
         <script src="scripts/relativity.js"></script>
     </body>

@@ -5,6 +5,64 @@ section {
     margin: auto;
     padding: 10px;
 }
+
+a {
+    font-family: 'Baloo Thambi', cursive;
+    font-size: 150%;
+    color:black;
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: 180%;
+    color:darkgrey;
+}
+
+//header {
+//    width: 300px; /*can be in percentage also.*/
+//    height: 1000px;
+//    margin: 0 auto;
+//    padding: 10px;
+//    position: relative;
+//}
+
+div.myHeader {
+    width: 300px; /*can be in percentage also.*/
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+div.myHeader h1 {
+    font-family: 'Baloo Thambi', cursive;
+    font-size: 200%;
+    padding:0;
+    margin:0;
+}
+
+div.myHeader h2 {
+    font-family: 'Pacifico', cursive;
+    padding:0;
+    margin:0;
+}
+
+div.myHeader h3 {
+    font-family: 'Open Sans', sans-serif;
+    padding:0;
+    margin:0;
+}
+
+#header {
+    width: 300px; /*can be in percentage also.*/
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+
+
 div#spacer {
     margin-left: 320px;
     height: 1px;
@@ -15,7 +73,8 @@ div#spacer2 {
     height: 1px;
     float: left;
 }
-div#one, div#four {
+
+.clock {
     width: 50px;
     height: 50px;
     margin-top: 0;
@@ -23,7 +82,23 @@ div#one, div#four {
     padding-top: 20px;
     padding-left: 10px;
     float: left;
+    border: solid 1px #555; 
+    box-shadow: 10px -10px 5px rgba(0,0,0,0.6); 
+    -moz-box-shadow: 10px -10px 5px rgba(0,0,0,0.6); 
+    -webkit-box-shadow: 10px -10px 5px rgba(0,0,0,0.6); 
+    -o-box-shadow: 10px -10px 5px rgba(0,0,0,0.6);
+    border-radius: 50px;
 }
+
+/*div#one, div#four {
+    width: 50px;
+    height: 50px;
+    margin-top: 0;
+    color: white;
+    padding-top: 20px;
+    padding-left: 10px;
+    float: left;
+}*/
 
 div#one, div#two {
     background-color: red;
@@ -49,7 +124,7 @@ div#five {
     background: black;
     float: left;
 }
-div#two, div#six {
+/*div#two, div#six {
     float: left;
     width: 50px;
     height: 50px;
@@ -57,7 +132,7 @@ div#two, div#six {
     color:white;
     padding-top: 20px;
     padding-left: 10px;
-}
+}*/
 
 div.buttons {
     width: 300px; /*can be in percentage also.*/
@@ -65,4 +140,48 @@ div.buttons {
     margin: 0 auto;
     padding: 10px;
     position: relative;
+}
+
+
+.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+	box-shadow:inset 0px 1px 0px 0px #fff6af;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+	background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+    margin: 2px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+    width: 200px;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+	background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+	background-color:#ffab23;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }
