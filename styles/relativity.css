@@ -1,6 +1,18 @@
+body {
+    background-color:lightgray;
+}
+
 section {
     width: 80%;
     height: 100px;
+    background: aqua;
+    margin: auto;
+    padding: 10px;
+}
+
+section#info-section {
+    width: 100%;
+    height: auto;
     background: aqua;
     margin: auto;
     padding: 10px;
@@ -34,20 +46,20 @@ div.myHeader {
     position: relative;
 }
 
-div.myHeader h1 {
+.myHeader h1 {
     font-family: 'Baloo Thambi', cursive;
     font-size: 200%;
     padding:0;
     margin:0;
 }
 
-div.myHeader h2 {
+.myHeader h2 {
     font-family: 'Pacifico', cursive;
     padding:0;
     margin:0;
 }
 
-div.myHeader h3 {
+.myHeader h3 {
     font-family: 'Open Sans', sans-serif;
     padding:0;
     margin:0;

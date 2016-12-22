@@ -1,0 +1,30 @@
+This is a demo showing mutual time dilation and length contraction in Special Relativity.
+
+Einstein's special relativity says that objects moving at nearly the speed of light undergo "length contraction" in the direction of motion. So if a spaceship that is originally 100 meters long travels at 86.6% of the speed of light, then it will shrink to only 50 meters long. Relativity also says that clocks that are traveling at nearly the speed of light undergo "time dilation". So if a clock travels at 86.6% of the speed of light, it will advance at half the normal rate. If the clocks travels this way for one hour, the time on the clock will only advance 30 minutes.
+
+These two effects seem paradoxical when you consider the "principle of relativity", which implies that all motion is relative. If there are two rockets, (in the demo they are called the "green" rocket and the "red" rocket), and they are moving at a relative speed of 86.6% of the speed of light, then those aboard each rocket can think of themselves as being "at rest" while the other rocket is "moving". So the effects of relativity--length contraction and time dilation--always apply to the "other" rocket, not the one you're on. But surely there should be a way to compare the lengths and the clocks of the two rockets to find out which one is "really" moving?
+
+The answer is: No. There is no way to determine which rocket is really moving. All attempts to find out which clocks are time dilated will always give the answer: the other rocket's clocks. The reason that attempts to find out which one is moving must fail involves yet another relativistic effect beyond length contraction and time dilation: the "relativity of simultaneity". What this means is that clocks that seem to be "in synch" according to some observers will be "out of synch" according to other observers. This disagreement about synchronization of clocks turns out to work together with length contraction and time dilation to make it impossible to detect absolute motion. (Of course, the reason for this is that there is no such thing as absolute motion!)
+
+This demo goes through a scenario for establishing time dilation. We imagine two ships, called the "green" ship and the "red" ship, who are traveling at a speed of 86.6% of the speed of light relative to one another. In the scenario, the red ship is traveling to the right relative to the green ship. To establish time dilation of the red ship, those on the green ship note the following events:
+
+1. At time 12:00 (according to the nearest clock on the green ship), the right end of the red ship passes the left end of the green ship. At this moment, the clock on the right end of the red ship also shows time 12:00.
+2. At time 1:00 (according to the nearest clock on the green ship), the right end of the red ship passes the right end of the green ship. At this moment, the clock on the right end of the red ship shows time 12:30.
+
+So clearly, the clocks on the red ship are running slow, compared to the clocks on the green ship. But the passengers on the red ship will say exactly the opposite!
+
+1. At time 12:00 (according to the nearest clock on the red ship), the left end of the green ship passes the right end of the red ship. At this moment, the clock on the left end of the green ship also shows time 12:00.
+2. At time 1:00 (according to the nearest clock on the red ship), the left end of the green ship passes the left end of the red ship. At this moment, the clock on the left end of the green ship shows time 12:30.
+
+The passengers on board the red ship are equally justified in saying that the clocks on the green ship are running slow.
+
+The demo shows how the passengers on the green rocket explain the (mistaken, in their opinion) observations of the passengers on the red rocket: The clocks on the red ship are not synchronized; the left clock is 45 minutes ahead of the right clock. It is true that when the left end of the green ship passes the right end of the red ship, the time is 12:00 according to the closest red ship clock, and it's true that when the left end of the green ship passes the left end of the red ship, the time is 1:00 according to the closest red ship clock. But that doesn't mean that the red ship clocks have advanced 1 hour. The left clock of the red ship started out 45 minutes ahead, so it really only advanced 15 minutes.
+
+From the point of view of the passengers on the red ship, it is the passengers of the green ship who have been fooled by their unsynchronized clocks.
+
+To run the demo:
+Click the button labeled "Start" to begin the simulation.
+Click the button labeled "Red ship's frame" to see how things seem, according to a passenger on the right end of the red ship.
+Click the button labeled "Green ship's frame" to see how things seem, according to a passenger on the left end of the green ship.
+
+(Note that clicking between frames changes the times of distant clocks.)

@@ -9,45 +9,54 @@
         <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
     </head>
     <body>
-        <section>
-            <h2>Parameters</h2>
-            <ul>
-                <li>speed = 0.866 c</li>
-                <li>uncontracted rocket length = 51.86 light-minutes</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Notes</h2>
-            <h3>In the "green" rest frame:</h3>
-            <ul>
-                <li>The green rocket is stationary</li>
-                <li>The red rocket is moving to the right at speed 0.866c.</li>
-                <li>The clocks of the "green" rocket are synchronized.</li>
-                <li>The clocks of the "red" rocket are out-of-synch.</li>
-                <li>The clocks of the "red" rocket run at one-half the rate of those of the "green" rocket.</li>
-                <li>The front clock (the right clock) of the "red" rocket is 45 minutes behind that of the rear clock (the left clock).</li>
-                <li>The length of the "red" rocket is one-half that of the "green" rocket.</li>
-            </ul>
-            <h3>In the "red" rest frame:</h3>
-            <ul>
-                <li>The red rocket is stationary.</li>
-                <li>The green rocket is moving to the left at speed 0.866c</li>
-                <li>The clocks of the "red" rocket are synchronized.</li>
-                <li>The clocks of the "green" rocket are out-of-synch.</li>
-                <li>The clocks of the "green" rocket run at one-half the rate of those of the "red" rocket.</li>
-                <li>The front clock (the left clock, since it's moving to the left) of the "green" rocket is 45 minutes ahead of that of the rear clock.</li>
-                <li>The length of the "green" rocket is one-half that of the "red" rocket.</li>
-            </ul>
-            <h3>Formulas</h3>
-            <ul>
-                <li>"gamma factor" = 1/sqrt(1-v^2/c^2)</li>
-                <li>length of moving rocket contracted by a factor of gamma</li>
-                <li>rate of moving clock slows by a factor of gamma</li>
-                <li>offset of clocks on board moving rocket = gamma L (L = distance between clocks, with the "front" clock running behind) </li>
-            </ul>
+        <section id="info-section">
+            <header class="myHeader">
+                <h1>Einstein's Relativity</h1>
+                <h2>Length Contraction, Time Dilation and All That</h2>
+            </header>
+
+            <p>This is a demo showing mutual time dilation and length contraction in Special Relativity.</p>
+
+<p>Einstein's special relativity says that objects moving at nearly the speed of light undergo "length contraction" in the direction of motion. So if a spaceship that is originally 100 meters long travels at 86.6% of the speed of light, then it will shrink to only 50 meters long. Relativity also says that clocks that are traveling at nearly the speed of light undergo "time dilation". So if a clock travels at 86.6% of the speed of light, it will advance at half the normal rate. If the clocks travels this way for one hour, the time on the clock will only advance 30 minutes.</p>
+
+<p>These two effects seem paradoxical when you consider the "principle of relativity", which implies that all motion is relative. If there are two rockets, (in the demo they are called the "green" rocket and the "red" rocket), and they are moving at a relative speed of 86.6% of the speed of light, then those aboard each rocket can think of themselves as being "at rest" while the other rocket is "moving". So the effects of relativity--length contraction and time dilation--always apply to the "other" rocket, not the one you're on. But surely there should be a way to compare the lengths and the clocks of the two rockets to find out which one is "really" moving?</p>
+
+<p>The answer is: <em>No</em>. There is no way to determine which rocket is really moving. All attempts to find out which clocks are time dilated will always give the answer: the other rocket's clocks. The reason that attempts to find out which one is moving must fail involves yet another relativistic effect beyond length contraction and time dilation: the "relativity of simultaneity". What this means is that clocks that seem to be "in synch" according to some observers will be "out of synch" according to other observers. This disagreement about synchronization of clocks turns out to work together with length contraction and time dilation to make it impossible to detect absolute motion. (Of course, the reason for this is that there is no such thing as absolute motion!)</p>
+
+<p>This demo goes through a scenario for establishing time dilation. We imagine two ships, called the "green" ship and the "red" ship, who are traveling at a speed of 86.6% of the speed of light relative to one another. In the scenario, the red ship is traveling to the right relative to the green ship. To establish time dilation of the red ship, those on the green ship note the following events:</p>
+
+<ol>
+    <li>At time 12:00 (according to the nearest clock on the green ship), the right end of the red ship passes the left end of the green ship. At this moment, the clock on the right end of the red ship also shows time 12:00.</li>
+    <li>At time 1:00 (according to the nearest clock on the green ship), the right end of the red ship passes the right end of the green ship. At this moment, the clock on the right end of the red ship shows time 12:30.</li>
+</ol>
+
+<p>So clearly, the clocks on the red ship are running slow, compared to the clocks on the green ship. But the passengers on the red ship will say exactly the opposite!</p>
+
+<ol>
+    <li>At time 12:00 (according to the nearest clock on the red ship), the left end of the green ship passes the right end of the red ship. At this moment, the clock on the left end of the green ship also shows time 12:00.</li>
+    <li>At time 1:00 (according to the nearest clock on the red ship), the left end of the green ship passes the left end of the red ship. At this moment, the clock on the left end of the green ship shows time 12:30.</li>
+</ol>
+
+<p>The passengers on board the red ship are equally justified in saying that the clocks on the green ship are running slow.</p>
+
+<div class="myHeader">
+    <h2>The Demo</h2>
+</div>
+<p>
+The demo shows how the passengers on the green rocket explain the (mistaken, in their opinion) observations of the passengers on the red rocket: The clocks on the red ship are not synchronized; the left clock is 45 minutes ahead of the right clock. It is true that when the left end of the green ship passes the right end of the red ship, the time is 12:00 according to the closest red ship clock, and it's true that when the left end of the green ship passes the left end of the red ship, the time is 1:00 according to the closest red ship clock. But that doesn't mean that the red ship clocks have advanced 1 hour. The left clock of the red ship started out 45 minutes ahead, so it really only advanced 15 minutes.</p>
+
+<p>From the point of view of the passengers on the red ship, it is the passengers of the green ship who have been fooled by their unsynchronized clocks.</p>
+
+<p>
+To run the demo:
+Click the button labeled "Start" to begin the simulation.
+Click the button labeled "Red ship's frame" to see how things seem, according to a passenger on the right end of the red ship.
+    Click the button labeled "Green ship's frame" to see how things seem, according to a passenger on the left end of the green ship.</p>
+
+(Note that clicking between frames changes the times of distant clocks.)
+<a href="index.html">Back to the demo</a>
             
-            <a href="index.html">Back to the demo</a>
-        </section>
->
+</section>
+ 
     </body>
 </html>
