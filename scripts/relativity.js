@@ -11,6 +11,40 @@ var pos_max = 450; // maximum number of "ticks" to run simulation
 var pos = 0; // current number of ticks
 var time_offset = 45; // offset of left clock of red ship when it is moving, or right clock of green ship when it is moving
 
+function switchTo(shipName, side) {
+    var ship;
+    for (var i=0; i<ships.length; i++) {
+        if (shipName == ships[i].name) {
+            ship = ships[i];
+            break;
+        }
+    }
+    
+    if (! ship.moving) {
+        return;
+    }
+    
+    var newName = ship.getOtherName();
+    var ticks = ship.ticks + Math.floor(ship.getOffset(side) * (1.0/shortRate) + 0.5);
+    ticks = Math.floor((ticks / longRate) * shortRate + 0.5);
+    
+    startPosition = ship.getPosition() + ship.getPosShift(side) - pos_delta;
+    
+    setupShipsAux(ticks, newName);
+
+}
+
+function setupShipsAux(ticks, mover1) {
+    mover = mover1;
+    for (var i = 0; i < ships.length; i++) {
+        var ship = ships[i];
+        ship.setMover(mover);
+        ship.setTicks(ticks);
+        ship.setPosition(startPosition + pos_delta, ticks);
+    }
+    pos = ticks;
+}
+
 function Ship(leftClock, rightClock, leftSpacer, rod, name) {
     this.leftClock = leftClock; // a div representing the clock on the left end of the ship
     this.rightClock = rightClock; // a div representing the clock on the right end of the ship
@@ -30,11 +64,47 @@ function Ship(leftClock, rightClock, leftSpacer, rod, name) {
     this.left_offset = 0;
     this.right_offset = 0;
     
+    this.getOffset = function(side) {
+        if (side == "left") {
+            return this.left_offset;
+        }
+        
+        if (side == "right") {
+            return this.right_offset;
+        }
+    }
+    
+    this.getPosShift = function(side) {
+        if (side == "left") {
+            if (this.name == "red") {
+                return longLength - shortLength;
+            }
+            return 0;
+        }
+        
+        if (side == "right") {
+            if (this.name == "green") {
+                return shortLength - longLength;
+            }
+            return 0;
+        }
+    }
+    
     this.setMover = function(name) {
         if (name == this.name) {
             this.setMoving(true);
         } else {
             this.setMoving(false);
+        }
+    }
+    
+    this.getOtherName = function() {
+        if (this.name == "red") {
+            return "green";
+        }
+        
+        if (this.name == "green") {
+            return "red";
         }
     }
         
@@ -56,6 +126,15 @@ function Ship(leftClock, rightClock, leftSpacer, rod, name) {
             this.left_offset = 0;
             this.right_offset = 0;
             this.setSize(longLength);
+        }
+    }
+    
+    this.getPosition = function() {
+        if (this.name == "red") {
+            return this.rightPosition;
+        }
+        if (this.name == "green") {
+            return this.leftPosition;
         }
     }
     
@@ -168,7 +247,7 @@ window.onload = function() { // create ships, initialize their lengths, position
     initGreen();
 }
 
-function setUpShips(ticks, mover1) { // calculate ship parameters for given number of ticks; mover1 specifies which ship is moving
+function setupShips(ticks, mover1) { // calculate ship parameters for given number of ticks; mover1 specifies which ship is moving
     if (ticks === undefined || ticks < 0) {
         if (mover1 != mover) {
             ticks = Math.floor((ships[0].ticks / longRate) * shortRate + 0.5);
@@ -177,16 +256,20 @@ function setUpShips(ticks, mover1) { // calculate ship parameters for given numb
         }
     }
     
-    mover = mover1;
+    setupShipsAux(ticks, mover1);
     
-    for (var i = 0; i < ships.length; i++) {
-        var ship = ships[i];
-        ship.setMover(mover);
-        ship.setTicks(ticks);
-        ship.setPosition(startPosition + pos_delta, ticks);
-    }
+    //mover = mover1;
+    //
+    //for (var i = 0; i < ships.length; i++) {
+    //    var ship = ships[i];
+    //    ship.setMover(mover);
+    //    ship.setTicks(ticks);
+    //    ship.setPosition(startPosition + pos_delta, ticks);
+    //}
 
-    pos = ticks;
+    //pos = ticks;
+    
+    
 }
 
 function stopMove() { // stops animation
@@ -196,21 +279,23 @@ function stopMove() { // stops animation
 }
 
 function initGreen() { // sets up simulation for green frame (red ship moving)
-    setUpShips(0, "red");
+    setupShips(0, "red");
     stopMove();
 }
 
 function initRed() { // sets up simulation for green frame (red ship moving)
-    setUpShips(0, "green");
+    setupShips(0, "green");
     stopMove();
 }
 
 function switchToGreen() { // switches to green frame, keeping the time on the left green clock unchanged
-    setUpShips(-1, "red");
+    switchTo("green", "left");
+    //setupShips(-1, "red");
 }
 
 function switchToRed() { // switches to red frame, keeping time on the right red clock unchanged
-    setUpShips(-1, "green");
+    //setupShips(-1, "green");
+    switchTo("red", "right");
 }
 
 
@@ -222,7 +307,7 @@ function myMove() {
             clearInterval(id)
         } else {
             pos++;
-            setUpShips(pos, mover);
+            setupShips(pos, mover);
         }
         
     }

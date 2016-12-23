@@ -112,12 +112,29 @@ div#spacer2 {
     float: left;
 }*/
 
-div#one, div#two {
+div#one {
     background-color: red;
+}
+
+div#two {
+    background-color: red;
+}
+
+div#one:hover, div#two:hover {
+    background-color:#ffc5c5;
+    font-weight:600;
+    font-size: 120%;
+    color:black;
 }
 
 div#four, div#six {
     background-color: green;
+}
+
+div#four:hover, div#six:hover {
+    background-color:palegreen;
+    color:black;
+    font-weight:600;
 }
 
 
