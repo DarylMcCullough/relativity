@@ -7,7 +7,7 @@ var shortRate = 0.115; // the clock rate of the time-dilated clock
 var longRate = 0.230; // the clock rate of the undilated clock
 var pos_delta = 100; // extra padding on left, in px
 var mover = "red"; // which ship is moving
-var pos_max = 450; // maximum number of "ticks" to run simulation
+var ticks_max = 522; // maximum number of "ticks" to run simulation
 var pos = 0; // current number of ticks
 var time_offset = 45; // offset of left clock of red ship when it is moving, or right clock of green ship when it is moving
 
@@ -303,7 +303,7 @@ function switchToRed() { // switches to red frame, keeping time on the right red
 function myMove() {
     id = setInterval(move, 50);
     function move() {
-        if (pos == pos_max) {
+        if (pos > ticks_max) {
             clearInterval(id)
         } else {
             pos++;
