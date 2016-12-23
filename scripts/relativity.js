@@ -11,6 +11,8 @@ var ticks_max = 522; // maximum number of "ticks" to run simulation
 var pos = 0; // current number of ticks
 var time_offset = 45; // offset of left clock of red ship when it is moving, or right clock of green ship when it is moving
 
+var startPosition_original = 400;
+
 function switchTo(shipName, side) {
     var ship;
     for (var i=0; i<ships.length; i++) {
@@ -279,11 +281,13 @@ function stopMove() { // stops animation
 }
 
 function initGreen() { // sets up simulation for green frame (red ship moving)
+    startPosition = startPosition_original;
     setupShips(0, "red");
     stopMove();
 }
 
 function initRed() { // sets up simulation for green frame (red ship moving)
+    startPosition = startPosition_original;
     setupShips(0, "green");
     stopMove();
 }
